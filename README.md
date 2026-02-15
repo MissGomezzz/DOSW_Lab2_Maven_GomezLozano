@@ -68,6 +68,10 @@ Para complementar el ejercicio de código se decidió implementar pruebas de uni
 ## Pruebas de unidad
 
 
+
+
+
+
 ## RETO 5 
 
 **Diagrama de clases**
@@ -86,8 +90,6 @@ Aunque al comienzo se tenía planeado aplicar el patrón Build para la creación
 
 Al tener una base estándar del café, acá estamos extendiendo el pedido inicial, en vez de modificar los cafés directamente. Por esta razón, al crear una interfaz llamada Coffee estamos estableciendo métodos puntuales, la cual esta después es implementada por BaseCoffee y CoffeeDecorator.
 
-Esto genera una clase de "envoltura", en donde partimos de tener un objeto tipo Café, y este es envuelto en otros objetos tipo café que serían los toppings. Acá estamos manteniendo el principio de O de SOLID, Open for extension closed for modification. 
-
 **Interfaz coffee (base)**
 
 ![alt text](images/interfacecoffee.png)
@@ -95,6 +97,9 @@ Esto genera una clase de "envoltura", en donde partimos de tener un objeto tipo 
 **Implementación de la interfaz**
 
 ![alt text](images/coffeedecorator.png)
+
+Esto genera una clase de "envoltura", en donde partimos de tener un objeto tipo Café, y este es envuelto en otros objetos tipo café que serían los toppings. Acá estamos manteniendo el principio de O de SOLID, Open for extension closed for modification. 
+
 
 **Ejemplo de clase concreta**
 
@@ -130,33 +135,6 @@ Para complementar el ejercicio de código se decidió implementar pruebas de uni
 
 
 ## Pruebas de unidad
-
-
-## RETO 7
-
-**Diagrama de clases**
-
-
-
-**Descripción**
-
-
-## Pruebas de unidad
-
-
-## RETO 8
-
-**Diagrama de clases**
-
-
-
-**Descripción**
-
-
-## Pruebas de unidad
-
-
-
 
 
 
