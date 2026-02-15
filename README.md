@@ -1,4 +1,6 @@
-# Laboratorio 2 - Identificando los patrones de diseño 
+# Laboratorio 2 - Patrones de diseño + Maven
+
+**Autoras: Paula Valentina Lozano, Ángela Gómez**
 
 ## RETO 3 - El problema del Reino de los Vehículos – Patrón comportamental 
 
@@ -17,15 +19,15 @@ Este problema maneja varios tipos de vehículos (usados para agua, tierra o aire
 
 Para comenzar se aplicó un patrón de diseño de Strategy, ya que hacemos uso de las interaces para facilitar el manejo y la creación de objetos dependiendo de la opción que vaya eligiendo el usuario. Así manejamos los cambios en los precios, velocidad y demás características sin la necesidad de llenar los métodos con if else. Acá el cómo cambian esas características es delegado a las categorías que implementan la interfaz de CategoryStrategy. 
 
-Manejo de casos usando switch en el Main:
+**Manejo de casos usando switch en el Main**
 
 ![alt text](images/main.png)
 
-Interfaz puntual que establece métodos básicos: 
+**Interfaz puntual que establece métodos básicos**
 
 ![alt text](/images/image.png)
 
-Implementación de interfaz hacia cada categoría:
+**Implementación de interfaz hacia cada categoría**
 
 Económico:
 
@@ -54,7 +56,7 @@ Para complementar el ejercicio de código se decidió implementar pruebas de uni
 
 ![alt text](images/tests.png)
 
-## RETO 4 
+## RETO 4 - El Café Personalizado - Patrón Estructural 
 
 **Diagrama de clases**
 
@@ -70,12 +72,51 @@ Para complementar el ejercicio de código se decidió implementar pruebas de uni
 
 **Diagrama de clases**
 
+Diagrama de clases realizado en Mermaid. 
 
+![alt text](images/coffee.png)
+
+Nota: El diagrama fue apoyado del código UML brindado por ChatGPT. 
 
 **Descripción**
 
+Para este ejercicio nos piden realizar un sistema efectivo y práctico de añadir diferentes tipos de toppings a un número determinado de cafés (el usuario elige los toppings y número de cafés). 
+
+Aunque al comienzo se tenía planeado aplicar el patrón Build para la creación de los diferentes cafés con sus toppings respectivos, nos dimos cuenta que era mejor aplicarle el patrón Decorator, ya que la clave está en que siempre tendremos el mismo café básico y que de ahí partimos a "decorarlo" con los toppings. 
+
+Al tener una base estándar del café, acá estamos extendiendo el pedido inicial, en vez de modificar los cafés directamente. Por esta razón, al crear una interfaz llamada Coffee estamos estableciendo métodos puntuales, la cual esta después es implementada por BaseCoffee y CoffeeDecorator.
+
+Esto genera una clase de "envoltura", en donde partimos de tener un objeto tipo Café, y este es envuelto en otros objetos tipo café que serían los toppings. Acá estamos manteniendo el principio de O de SOLID, Open for extension closed for modification. 
+
+**Interfaz coffee (base)**
+
+![alt text](images/interfacecoffee.png)
+
+**Implementación de la interfaz**
+
+![alt text](images/coffeedecorator.png)
+
+**Ejemplo de clase concreta**
+
+![alt text](images/whippedcream.png)
+
+
+**Estructura del main**
+
+![alt text](images/maincoffee.png)
+
+
+**Ejemplo resultado**
+
+![alt text](images/coffeeresult.png)
+
+
 
 ## Pruebas de unidad
+
+Para complementar el ejercicio de código se decidió implementar pruebas de unidad con ayuda de ChatGPT para tratar casos bordes y hacerlos lo más robustos y pertinentes posibles. A continuación se muestran los resultados de estas pruebas, haciendo uso de la estructura del arquetipo de Maven, en donde usamos JUnit y logramos correr las pruebas en su carpeta correspondiente. 
+
+![alt text](images/testscoffee.png)
 
 
 
