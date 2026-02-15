@@ -5,3 +5,6 @@ public interface VehicleComponent {
     double getPrice();
     String showDetails();
 }
+
+
+

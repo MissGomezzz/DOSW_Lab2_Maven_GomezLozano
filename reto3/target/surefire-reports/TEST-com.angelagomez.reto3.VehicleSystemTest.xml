@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.angelagomez.reto3.VehicleSystemTest" time="0.061" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.angelagomez.reto3.VehicleSystemTest" time="0.06" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\sofia\AppData\Local\Temp\surefire11331852096870881554\surefirebooter-20260215000601952_3.jar C:\Users\sofia\AppData\Local\Temp\surefire11331852096870881554 2026-02-15T00-06-01_812-jvmRun1 surefire-20260215000601952_1tmp surefire_0-20260215000601952_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\sofia\AppData\Local\Temp\surefire17872339417979016369\surefirebooter-20260215133716807_3.jar C:\Users\sofia\AppData\Local\Temp\surefire17872339417979016369 2026-02-15T13-37-16_694-jvmRun1 surefire-20260215133716807_1tmp surefire_0-20260215133716807_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="com.angelagomez.reto3.VehicleSystemTest"/>
     <property name="surefire.test.class.path" value="C:\Users\sofia\DOSW_Lab2_Maven\DOSW_Lab2_Maven_GomezLozano\reto3\target\test-classes;C:\Users\sofia\DOSW_Lab2_Maven\DOSW_Lab2_Maven_GomezLozano\reto3\target\classes;C:\Users\sofia\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.0\junit-jupiter-5.10.0.jar;C:\Users\sofia\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\sofia\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\sofia\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;C:\Users\sofia\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\sofia\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.0\junit-jupiter-params-5.10.0.jar;C:\Users\sofia\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;C:\Users\sofia\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\sofia\AppData\Local\Temp\surefire11331852096870881554\surefirebooter-20260215000601952_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\sofia\AppData\Local\Temp\surefire17872339417979016369\surefirebooter-20260215133716807_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.17+10"/>
@@ -66,9 +66,9 @@
   <testcase name="shouldFilterExpensiveVehiclesUsingStream" classname="com.angelagomez.reto3.VehicleSystemTest" time="0.002"/>
   <testcase name="usedCategoryShouldReducePriceMore" classname="com.angelagomez.reto3.VehicleSystemTest" time="0.001"/>
   <testcase name="shouldFindFastestVehicle" classname="com.angelagomez.reto3.VehicleSystemTest" time="0.001"/>
-  <testcase name="luxuryBikeShouldBeFasterThanEconomicCar" classname="com.angelagomez.reto3.VehicleSystemTest" time="0.0"/>
-  <testcase name="shouldCalculateTotalPrice" classname="com.angelagomez.reto3.VehicleSystemTest" time="0.002"/>
+  <testcase name="luxuryBikeShouldBeFasterThanEconomicCar" classname="com.angelagomez.reto3.VehicleSystemTest" time="0.001"/>
+  <testcase name="shouldCalculateTotalPrice" classname="com.angelagomez.reto3.VehicleSystemTest" time="0.003"/>
   <testcase name="usedBoatShouldBeCheaperThanLuxuryCar" classname="com.angelagomez.reto3.VehicleSystemTest" time="0.0"/>
-  <testcase name="equipmentShouldIncludeCategoryExtras" classname="com.angelagomez.reto3.VehicleSystemTest" time="0.0"/>
+  <testcase name="equipmentShouldIncludeCategoryExtras" classname="com.angelagomez.reto3.VehicleSystemTest" time="0.004"/>
   <testcase name="economicCategoryShouldReducePrice" classname="com.angelagomez.reto3.VehicleSystemTest" time="0.0"/>
 </testsuite>

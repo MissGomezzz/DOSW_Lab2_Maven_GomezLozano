@@ -6,3 +6,5 @@ public interface CategoryStrategy {
     public String getAdditionalEquipment();
 
 }
+
+

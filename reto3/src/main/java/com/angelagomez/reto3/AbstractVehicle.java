@@ -8,17 +8,23 @@ public abstract class AbstractVehicle implements VehicleComponent {
     private final VehicleType vehicleType;
     private final String specialEquipment;
 
-    public AbstractVehicle(double basePrice,
-                           int baseSpeed,
-                           CategoryStrategy category,
-                           VehicleType vehicleType,
-                           String specialEquipment) {
+    public AbstractVehicle(double basePrice, int baseSpeed, CategoryStrategy category,
+                           VehicleType vehicleType, String specialEquipment) {
 
         this.basePrice = basePrice;
         this.baseSpeed = baseSpeed; 
         this.category = category;
         this.vehicleType = vehicleType;
         this.specialEquipment = specialEquipment;
+    }
+
+        @Override
+    public String showDetails() {
+        return "Type: " + getTypeName() +
+                "\nCategory: " + getCategoryName() +
+                "\nMax Speed: " + getSpeed() + " km/h" +
+                "\nPrice: $" + getPrice() +
+                "\nEquipment: " + getEquipment();
     }
 
     @Override
@@ -29,7 +35,7 @@ public abstract class AbstractVehicle implements VehicleComponent {
     public String getTypeName() {return vehicleType.name(); }
 
     public String getCategoryName() {
-        //Guided with ChatGpt
+        //Guided with ChatGPT
         return category.getClass().getSimpleName().replace("Category", "");
     }
 
@@ -37,12 +43,5 @@ public abstract class AbstractVehicle implements VehicleComponent {
         return specialEquipment + " + " + category.getAdditionalEquipment();
     }
 
-    @Override
-    public String showDetails() {
-        return "Type: " + getTypeName() +
-                "\nCategory: " + getCategoryName() +
-                "\nMax Speed: " + getSpeed() + " km/h" +
-                "\nPrice: $" + getPrice() +
-                "\nEquipment: " + getEquipment();
-    }
+
 }
