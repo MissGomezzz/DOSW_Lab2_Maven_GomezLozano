@@ -56,20 +56,73 @@ Para complementar el ejercicio de código se decidió implementar pruebas de uni
 
 ![alt text](images/tests.png)
 
+
+
 ## RETO 4 - El Café Personalizado - Patrón Estructural 
 
-**Diagrama de clases**
+![Diagrama UML](images/DiagramaReto4.png)
+
+**Patrón de Diseño**
+
+Comportamental
+
+**Patrón Utilizado**
+
+Strategy
+
+**Justificación**
+En este reto el problema principal era que anteriormente se utilizaba una misma tasa de cambio para todas las monedas, lo cual generaba errores y pérdidas. El nuevo sistema debía permitir convertir distintas monedas (USD, EUR, JPY, COP, etc.) utilizando la tasa real correspondiente, además de aceptar múltiples transacciones.
+
+Identificamos que el comportamiento que cambia en el sistema es la forma en que se calcula la conversión según la moneda destino. Cada moneda puede tener una tasa distinta y una lógica diferente de conversión.
+
+Si hubiéramos implementado todas las conversiones dentro de una sola clase con múltiples condicionales (if o switch), el sistema habría quedado fuertemente acoplado y sería difícil de extender si en el futuro se agregan nuevas monedas.
+
+Por esta razón utilizamos el patrón Strategy, ya que nos permite encapsular cada forma de conversión en una estrategia independiente. De esta manera el sistema puede cambiar dinámicamente la forma en que convierte sin modificar su estructura principal.
+
+**Aplicación**
+
+Definimos una interfaz llamada EstrategiaTasaCambio, que representa el contrato común para realizar una conversión.
+
+![alt text](images/Interfaz.png)
+
+Luego implementamos la lógica concreta en clases que representan la conversión específica de cada moneda utilizando las tasas correspondientes definidas en TasasDeCambio.
+
+![alt text](images/Diccionario.png)
+
+La clase CasaDeCambio no realiza directamente la conversión; en su lugar, recibe o selecciona la estrategia adecuada y delega el cálculo a dicha estrategia.
+
+El flujo general funciona así:
+
+ - El usuario ingresa la cantidad y la moneda origen.
+
+ - Se selecciona la moneda destino.
+
+ - Se asigna la estrategia de conversión correspondiente.
+
+ - Se ejecuta la conversión.
+
+ - Se muestra tanto el valor original como el convertido.
+
+ - Para manejar múltiples transacciones utilizamos streams, lo que permitió:
+
+ - Procesar listas de transacciones.
+
+ - Calcular totales por moneda.
+
+ - Mostrar resúmenes finales de manera clara y funcional.
+
+---
+
+**Estructura principal del diseño**
+
+`Moneda:` representa los tipos de moneda disponibles.
+`Transaccion:` encapsula la información de cada operación realizada.
+`EstrategiaTasaCambio:` interfaz que define el método de conversión.
+`TasasDeCambio: `contiene las tasas reales utilizadas por las estrategias.
+`CasaDeCambio:` coordina el proceso y aplica la estrategia seleccionada.
 
 
-
-**Descripción**
-
-
-## Pruebas de unidad
-
-
-
-
+Para reforzar la comprensión del patrón Strategy revisamos material visto en clase y ejemplos de apoyo. La organización del flujo principal y la estructura del método main se apoyó parcialmente con herramientas de IA, con el objetivo de mantener claridad y modularidad en la ejecución, revisando siempre el código antes de integrarlo.
 
 
 ## RETO 5 
@@ -129,12 +182,81 @@ Para complementar el ejercicio de código se decidió implementar pruebas de uni
 
 **Diagrama de clases**
 
+![Diagram UML](images/DiagramaReto6.png)
+
+**Enfoque del diseño**
+
+El reto exigía evitar el acoplamiento directo entre el ticket y un técnico específico, y permitir que la decisión de quién resuelve el problema sea dinámica.
+
+**Categoría del patrón**
+
+Comportamental
+
+**Patrón aplicado**
+
+Chain of Responsibility 
+
+**Justificación del patrón**
+El problema principal consistía en que un ticket no debe saber directamente qué técnico lo resolverá. En su lugar, el ticket debe ser procesado por una cadena de técnicos hasta que alguno cumpla con las condiciones necesarias para resolverlo.
+
+Si hubiéramos implementado la lógica con múltiples condicionales o asignaciones directas (por ejemplo: “si dificultad es básica, entonces técnico X”), el sistema habría quedado rígido y poco escalable.
+
+El patrón Chain of Responsibility permite que múltiples objetos tengan la oportunidad de manejar una solicitud, pasando la responsabilidad al siguiente en la cadena si el actual no puede resolverla. Vimos que esto encaja perfectamente con el escenario del soporte técnico.
+
+**Cómo lo aplicamos en la solución**
+
+Definimos una clase base abstracta llamada HandlerSoporteTecnico, que representa un eslabón dentro de la cadena. Esta clase contiene una referencia al siguiente handler.
+
+![alt text](images/Handler.png)
+
+Cada técnico hereda o implementa esta estructura y define:
+
+ - Su especialidad.
+ - El nivel máximo de dificultad que puede resolver.
+ - El nivel máximo de prioridad que puede atender.
+
+El flujo de procesamiento funciona así:
+ - Se crea el ticket con su descripción, dificultad y prioridad.
+ - El ticket se envía al primer técnico de la cadena.
+ - Si el técnico puede resolverlo según sus reglas, lo atiende.
+ - Si no puede, lo pasa automáticamente al siguiente técnico.
+ - Si ningún técnico lo puede resolver, el ticket queda pendiente de escalamiento.
+
+Este diseño permite que el sistema decida dinámicamente quién resuelve cada ticket sin necesidad de que el ticket conozca la estructura completa del soporte.
+
+**Uso de streams**
+
+Los streams se utilizaron para:
+
+1. Contar la cantidad de tickets resueltos por cada nivel.
+2. alcular estadísticas finales.
+3. Generar resúmenes de procesamiento.
+4. Determinar tickets pendientes.
+
+Esto permitió mantener el código limpio y evitar estructuras repetitivas. Sin emabargo, hubo un gran apoyo de IA en estas partes.
 
 
-**Descripción**
+**Clases principales del diseño**
+
+Ticket: representa la solicitud del cliente, con dificultad y prioridad.
+
+Dificultad: enum que clasifica el nivel técnico del problema.
+
+Prioridad: enum que define el nivel de urgencia.
+
+Especialidad: enum que determina el tipo de problemas que puede resolver un técnico.
+
+HandlerSoporteTecnico: estructura base de la cadena.
+
+Tecnico: implementa la lógica de validación y resolución.
+
+Reto6: encapsula la ejecución del reto.
+
+Application: llama la ejecución desde el main.
 
 
-## Pruebas de unidad
+
+Para reforzar la comprensión del patrón revisamos ejemplos prácticos y material de apoyo adicional. La organización del flujo principal y del método main se estructuró de forma modular, apoyándonos parcialmente en herramientas de IA para mantener claridad y orden en la ejecución, siempre validando el funcionamiento del código antes de integrarlo.
 
 
 
