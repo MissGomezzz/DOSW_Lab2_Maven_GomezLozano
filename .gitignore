@@ -1,0 +1,15 @@
+# MAVEN (para todos los subproyectos)
+**/target/
+
+# VS Code
+.vscode/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Archivos compilados
+*.class
+
+# Logs
+*.log
